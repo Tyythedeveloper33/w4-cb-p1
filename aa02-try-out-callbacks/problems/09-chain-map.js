@@ -28,11 +28,34 @@ console.log(chainMap(25, add5, half, square));  // 225
 console.log(chainMap(4, square, half));         // 8
 console.log(chainMap(4, half, square));         // 4
 *******************************************************************************/
+/* Write a function `chainMap` that accepts a value and any number of callbacks as
+arguments. The function should return the final result of passing the value through
+all of the given callbacks. In other words, if three callbacks are given then:
+- the value is given to the first callback
+- the result of the first callback is given to the second callback
+- the result of the second callback is given to the third callback
+- the result of the third callback is the final result
+*/
 
 function chainMap(val, ...callbacks) {
-  // Your code here 
-}
+  let result = val;
+  for (let i = 0; i < callbacks.length; i++) {
+    result = callbacks[i](result);
+  }
+  return result;
+};
 
+let half = (n) => {
+
+  let sliced = n / 2;
+
+  return sliced;
+};
+
+let square = sliced => sliced * sliced;
+
+
+console.log(chainMap(4, half, square));
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
   module.exports = chainMap;
