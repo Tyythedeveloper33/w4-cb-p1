@@ -22,9 +22,30 @@ console.log(reject(['breadth', 'GRAPH', 'depth', 'height'], hasA)); // [ 'depth'
 *******************************************************************************/
 
 function reject(array, cb) {
-  // Your code here 
+  let newArray = [];
+
+  array.forEach((el) => {
+    if (cb(el) === false) {
+      newArray.push(el);
+    }
+  })
+  return newArray;
+};
+
+let hasAs = (el) => {
+  let A = 'aA';
+  let letter = el.split('');
+ // console.log(letter);
+  for (let i = 0; i < letter.length; i++) {
+    if (letter.includes(A)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
+console.log(reject(['breadth', 'GRAPH', 'depth', 'height'], hasAs)); // [ 'depth', 'height' ]
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
   module.exports = reject;
