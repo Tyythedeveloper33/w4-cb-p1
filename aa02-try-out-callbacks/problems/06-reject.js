@@ -25,7 +25,8 @@ function reject(array, cb) {
   let newArray = [];
 
   array.forEach((el) => {
-    if (cb(el) === false) {
+    console.log(el)
+    if (!cb(el)) {
       newArray.push(el);
     }
   })
@@ -33,16 +34,18 @@ function reject(array, cb) {
 };
 
 let hasAs = (el) => {
-  let A = 'aA';
+  let a = 'aA';
   let letter = el.split('');
  // console.log(letter);
-  for (let i = 0; i < letter.length; i++) {
-    if (letter.includes(A)) {
+ let i = 0
+  while(i < letter.length){
+    if (a.includes(letter[i])) {
       return true;
     } else {
-      return false;
+      i++
     }
   }
+return false;
 }
 
 console.log(reject(['breadth', 'GRAPH', 'depth', 'height'], hasAs)); // [ 'depth', 'height' ]
