@@ -22,10 +22,30 @@ let result3 = mySome(['soup', 'noodles', 'bike', 'ship'], function(ele) {
 });
 console.log(result3);   // true
 *******************************************************************************/
+let truthifier = (el, i) => {
+    if (el === i) {
+        return true;
+    } else {
+        return false;
+    }
+};
 
 function mySome(array, cb) {
-    // Your code here 
-}
+    let ans = array.filter((el, i) => {
+        if (cb(el, i)) {
+            return true;
+        } else {
+            return false;;
+        }
+    })
+    if (ans[0] !== undefined) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+console.log(mySome([5, 1, 7, 9], truthifier));   // true
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {

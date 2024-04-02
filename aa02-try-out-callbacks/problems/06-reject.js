@@ -25,7 +25,6 @@ function reject(array, cb) {
   let newArray = [];
 
   array.forEach((el) => {
-    console.log(el)
     if (!cb(el)) {
       newArray.push(el);
     }
