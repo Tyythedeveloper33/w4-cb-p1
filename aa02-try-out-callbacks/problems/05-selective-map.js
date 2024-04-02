@@ -35,33 +35,32 @@ console.log(selectiveMap([-10, 4, 7, 6, -2, -9], isEven, flipSign));
 console.log(selectiveMap([-10, 4, 7, 6, -2, -9], isPositive, square));
 // [-10, 16, 49, 36, -2, -9]
 *******************************************************************************/
-
+let nums = [8, 5, 10, 4]
 function selectiveMap(array, selector, mapper) {
     let newArray = [];
 
     array.forEach((el) => {
         if (selector(el)) {
+         newArray.push(mapper(el))
 
-        } else {
-            if (mapper(el)) {
-            newArray.push(el);
-            }
+        }else{
+            newArray.push(el)
         }
     })
     return newArray;
 };
 
-let isOdd = (el) => {
-    if (el % 2 !== 0) {
-        return true;
-    } else {
-        return false;
+let multiply = (el) => el * el
+;
+
+let isEven = (el) => {
+    if(el % 2 === 0){
+     return true
     }
-};
+    return false
+}
 
-let isEven = (el) => 
-
-console.log(selectiveMap([-10, 4, 7, 6, -2, -9], isEven, isOdd));
+console.log(selectiveMap(nums, isEven, multiply));
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
     module.exports = selectiveMap;
