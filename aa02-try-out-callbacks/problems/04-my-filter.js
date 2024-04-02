@@ -20,9 +20,24 @@ console.log(result2);      // ['choose', 'words', 'only']
 *******************************************************************************/
 
 function myFilter(array, cb) {
-    // Your code here 
+    let newArray = [];
+
+    array.forEach((el) => {
+        if (cb(el) === true) {
+            newArray.push(el);
+        }
+    })
+    return newArray;
+};
+
+let bigWords = (word) => {
+    if (word.length > 3) {
+        return true;
+    }
+    return false;
 }
 
+console.log(myFilter(['choose', 'big', 'words', 'only'], bigWords));      // ['choose', 'words', 'only']
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
     module.exports = myFilter;

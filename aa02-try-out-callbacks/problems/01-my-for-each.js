@@ -20,11 +20,19 @@ myForEach(['laika', 'belka'], function (el) {
 });
 console.log(test); // ['LAIKA', 'BELKA']
 *******************************************************************************/
-
+let array = ['laika', 'belka'];
 function myForEach(array, cb) {
-    // Your code here 
-}
+    let result = [];
+   // array.forEach((name) =>
+    for (const name in array) {
+        let newName = cb(array[name]);
+        result.push(newName);
+    }
+    return result;
+};
 
+let capitalize = (name) => name.toUpperCase();
+console.log(myForEach(array, capitalize)); // ['LAIKA', 'BELKA']
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
     module.exports = myForEach;

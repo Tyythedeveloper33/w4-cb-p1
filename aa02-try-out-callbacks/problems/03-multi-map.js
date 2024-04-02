@@ -22,9 +22,28 @@ console.log(result3); // hi!!!!!
 *******************************************************************************/
 
 function multiMap(val, n, cb) {
-  // Your code here 
-}
+  
+  let i = 0;
+  let value = val;
 
+  while (i < n) {
+
+      val = cb(val);
+      i++;
+
+  }
+  return val;
+};
+
+let bang = (word) => {
+
+  word += '!';
+
+  return word;
+};
+
+
+console.log(multiMap("hi", 5, bang)); // hi!!!!!
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
   module.exports = multiMap;

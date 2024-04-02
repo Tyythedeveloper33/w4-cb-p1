@@ -15,11 +15,17 @@ let result2 = myMap(['run', 'Forrest'], function (el) {
 });
 console.log(result2);   // [ 'RUN!', 'FORREST!' ]
 *******************************************************************************/
-
+let array = ['run', 'forest'];
 function myMap(array, cb) {
-    // Your code here 
-}
-
+    let result = [];
+    for (const word in array) {
+        let newWord = cb(array[word]);
+        result.push(newWord);
+    }
+        return result;
+};
+let capitalization = (word) => word.toUpperCase() + '!';
+console.log(myMap(array, capitalization));   // [ 'RUN!', 'FORREST!' ]
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
     module.exports = myMap;

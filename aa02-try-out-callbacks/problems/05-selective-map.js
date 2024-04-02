@@ -37,9 +37,31 @@ console.log(selectiveMap([-10, 4, 7, 6, -2, -9], isPositive, square));
 *******************************************************************************/
 
 function selectiveMap(array, selector, mapper) {
-    // Your code here 
-}
+    let newArray = [];
 
+    array.forEach((el) => {
+        if (selector(el)) {
+
+        } else {
+            if (mapper(el)) {
+            newArray.push(el);
+            }
+        }
+    })
+    return newArray;
+};
+
+let isOdd = (el) => {
+    if (el % 2 !== 0) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+let isEven = (el) => 
+
+console.log(selectiveMap([-10, 4, 7, 6, -2, -9], isEven, isOdd));
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
     module.exports = selectiveMap;
