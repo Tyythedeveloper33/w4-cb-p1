@@ -20,11 +20,29 @@ console.log(myEvery([4, 7, 6, 10], isEven));            // false
 console.log(myEvery(['book', 'door'], hasO));           // true
 console.log(myEvery(['book', 'door', 'pen'], hasO));    // false
 *******************************************************************************/
+// Write a function `myEvery` that accepts an array and a callback as arguments.
+// The function should return a boolean indicating whether or not all elements of
+// the array return true when passed into the callback.
+
+// Do not use the built in Array.every.
 
 function myEvery(array, cb) {
-    // Your code here 
+    let truth = true
+   for(let i = 0; i < array.length; i++){
+       if(cb(array[i]) === false){
+            return false
+    }
+   }
+   return true
 }
-
+let even = (el) => {
+    if(el % 2 === 0){
+        return true
+    }else{
+        return false
+    }
+};
+console.log(myEvery([4, 7, 6, 10], even));
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
     module.exports = myEvery;
