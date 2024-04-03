@@ -27,11 +27,39 @@ console.log(andSelect(['ants', 'APPLES', 'ART', 'BACON', 'arm'], isUpperCase,  s
 // [ 'APPLES', 'ART' ]
 
 *******************************************************************************/
-
+/* Write a function `andSelect` that accepts an array and two callbacks. The function
+should return a new array containing elements of the original array that result in
+true when passed into both callbacks.
+*/
 function andSelect(array, cb1, cb2) {
-  // Your code here 
-}
+  let newArray = [];
 
+  for (let i = 0; i < array.length; i++) {
+    if (cb1(array[i]) && cb2(array[i])) {
+      newArray.push(array[i]);
+    }
+  }
+  return newArray;
+};
+
+let isUpperCase = (word) => {
+  if (word === word.toUpperCase()) {
+    return true;
+   } else {
+      return false;
+    }
+};
+
+let startsWithA = (word) => {
+  if (word[0] === 'A') {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+console.log(andSelect(['ants', 'APPLES', 'ART', 'BACON', 'arm'], isUpperCase,  startsWithA));
+// [ 'APPLES', 'ART' ]
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
   module.exports = andSelect;
