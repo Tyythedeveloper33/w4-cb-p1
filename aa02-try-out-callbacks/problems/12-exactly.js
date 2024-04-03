@@ -26,11 +26,34 @@ let result4 = exactly(['follow', 'the', 'yellow', 'brick', 'road'], 0, function 
 console.log(result4); // true
 
 *******************************************************************************/
+// Write a function `exactly` that accepts an array, a number, and a callback as
+// arguments. The function should return a boolean indicating whether or not there are
+// exactly `number` elements of the array that return true when passed into the callback.
 
 function exactly(array, num, cb) {
-  // Your code here 
+  // Your code here
+  let counter = 0
+  array.forEach((el) => {
+    if(cb(el)){
+   counter++
+    }
+  })
+  if(counter === num){
+    return true
+    }else{
+    return false
+    }
+}
+let string = (el) =>{
+let char = 'x'
+if(char.includes(el)){
+  return false
+}else{
+  return true
+}
 }
 
+console.log(exactly(['follow', 'the', 'yellow', 'brick', 'road'], 1, string ));
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
   module.exports = exactly;
